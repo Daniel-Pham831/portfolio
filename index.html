@@ -276,6 +276,19 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
   .edu .pixel{font-size:10px;color:var(--amber-hi)}
   .edu b{color:var(--ink);font-weight:600}
 
+  /* AI WORKFLOW */
+  .aiwrap{background:var(--bg-deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+  .aiwrap::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 60% at 12% 0%,var(--amber-wash),transparent 68%)}
+  .aiwrap .wrap{position:relative}
+  .aibadge{display:inline-flex;align-items:center;gap:9px;font-family:'Silkscreen';font-size:10.5px;color:var(--amber-hi);border:1px solid var(--border);padding:7px 13px;border-radius:999px;background:var(--surface);margin-bottom:16px}
+  .aibadge .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px -1px var(--amber)}
+  .skillcard p{color:var(--muted);font-size:14.4px;margin-top:11px}
+  .skillcard p b{color:var(--ink);font-weight:600}
+  .aiproof{margin-top:clamp(22px,3vw,30px);display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding:16px 20px;border:1px dashed var(--border-hi);border-radius:var(--r);background:var(--surface);box-shadow:var(--sh-sm);font-size:14.4px;color:var(--ink)}
+  .aiproof .pixel{font-size:10px;color:var(--amber-hi);border:1px solid var(--border);padding:5px 9px;border-radius:7px;background:var(--surface-2)}
+  .aiproof b{font-weight:600}
+  .aiproof a{color:var(--amber-hi);text-decoration:underline;text-decoration-color:oklch(0.505 0.200 36 /.4);text-underline-offset:3px}
+
   /* TROPHY WALL */
   .trophies{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:clamp(16px,2vw,22px)}
   .trophy{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(180deg, var(--surface), var(--surface-2));box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
@@ -377,6 +390,7 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
         <a href="#work"><span lang="en">Work</span><span lang="vi">Dự án</span></a>
         <a href="#experience"><span lang="en">Experience</span><span lang="vi">Kinh nghiệm</span></a>
         <a href="#skills"><span lang="en">Skills</span><span lang="vi">Kỹ năng</span></a>
+        <a href="#ai"><span lang="en">AI workflow</span><span lang="vi">AI</span></a>
         <a href="#contact" class="nav-cta"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
       </nav>
       <button id="langBtn" class="lang-btn" aria-label="Switch language / Đổi ngôn ngữ" title="EN / VI">
@@ -442,8 +456,10 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
     <a class="shot" href="#work"><img src="assets/dreamchaser-2.jpg" alt="Dream Chaser characters in Vietnamese costume" loading="lazy" /></a>
     <a class="shot" href="#work"><img src="assets/dreamchaser-6.jpg" alt="Dream Chaser daytime scene" loading="lazy" /></a>
     <a class="shot" href="#work"><img src="assets/strixel-1.jpg" alt="Strixel — old Saigon street food sim" loading="lazy" /></a>
+    <a class="shot" href="#work"><img src="assets/ballgame-field.jpg" alt="The Ball Game — on-field match simulation" loading="lazy" /></a>
     <a class="shot" href="#work"><img src="assets/dreamchaser-4.jpg" alt="Dream Chaser scene" loading="lazy" /></a>
     <a class="shot" href="#work"><img src="assets/magic-monster-1.jpg" alt="Magic Monster — pixel pet collector" loading="lazy" /></a>
+    <a class="shot" href="#work"><img src="assets/ballgame-cutscene.jpg" alt="The Ball Game — narrative 3D cutscene" loading="lazy" /></a>
   </div>
 </div>
 
@@ -482,18 +498,6 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
     </div>
   </div>
 </section>
-
-<!-- QUOTE BAND -->
-<div class="quoteband">
-  <div class="wrap">
-    <blockquote class="bigquote reveal">
-      <span class="qmark" aria-hidden="true">&ldquo;</span>
-      <p lang="en">I like the boring part of game dev: the <span class="hl">system that quietly works</span> at 2&nbsp;AM, the frame that <span class="yas">stops dropping</span>, the build that finally ships.</p>
-      <p lang="vi">Mình thích cái phần &ldquo;chán&rdquo; của làm game: cái <span class="hl">system chạy êm</span> lúc 2&nbsp;giờ sáng, cái frame <span class="yas">hết khựng</span>, cái build cuối cùng cũng lên store.</p>
-      <cite><span class="pixel">DAN</span> <span lang="en">— how I think about the craft</span><span lang="vi">— cách mình nghĩ về nghề</span></cite>
-    </blockquote>
-  </div>
-</div>
 
 <!-- WORK -->
 <section id="work">
@@ -537,7 +541,7 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
     <!-- other projects -->
     <div class="building" style="margin-top:clamp(40px,6vw,72px)">
       <div class="proj jade reveal">
-        <div class="mini tg j" aria-hidden="true"><span class="mk">⚾ THE BALL GAME</span></div>
+        <div class="mini"><img src="assets/ballgame-field.jpg" alt="The Ball Game — on-field match simulation layer Phúc built" loading="lazy" /></div>
         <span class="pbadge"><span class="dot"></span>SHIPPED · MAGMIC · iOS / iPad / MAC</span>
         <h3>The Ball Game <span class="wt">· by Playbrk</span></h3>
         <p class="desc">
@@ -606,6 +610,43 @@ l=(l==='vi'?'vi':'en');d.setAttribute('data-lang',l);d.setAttribute('lang',l);})
       <span class="pixel">EDU</span>
       <span><span lang="en"><b>Saigon Technology University (STU)</b> — Bachelor of Information Technology.</span><span lang="vi"><b>Đại học Công nghệ Sài Gòn (STU)</b> — Cử nhân Công nghệ Thông tin.</span></span>
       <span><span lang="en">English (professional working proficiency) · Vietnamese (native).</span><span lang="vi">Tiếng Anh (giao tiếp công việc thành thạo) · Tiếng Việt (bản ngữ).</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- AI WORKFLOW -->
+<section id="ai" class="aiwrap">
+  <div class="wrap">
+    <div class="head reveal" style="margin-bottom:clamp(28px,4vw,42px)">
+      <span class="aibadge"><span class="dot"></span>AI-AUGMENTED WORKFLOW</span>
+      <h2><span lang="en">AI in my workflow.</span><span lang="vi">AI trong cách mình làm việc.</span></h2>
+      <p><span lang="en">I lean on <b>Claude</b> and other AI tools to ship faster and better — without giving up ownership of the design, the architecture, or the quality. It's a force multiplier, not autopilot.</span><span lang="vi">Mình tận dụng <b>Claude</b> và các công cụ AI để làm <b>nhanh hơn và tốt hơn</b> — mà vẫn nắm chắc thiết kế, kiến trúc và chất lượng. Nó là đòn bẩy, không phải lái tự động.</span></p>
+    </div>
+    <div class="skillset">
+      <div class="skillcard reveal">
+        <div class="kl">PAIR PROGRAMMING</div>
+        <h3><span lang="en">Claude Code, every day</span><span lang="vi">Claude Code, mỗi ngày</span></h3>
+        <p><span lang="en">A daily pair programmer — scaffolding gameplay systems, refactoring large Unity codebases, and debugging tricky runtime issues. <b>I drive the architecture; AI handles the boilerplate.</b></span><span lang="vi">Bạn pair-programming mỗi ngày — dựng khung gameplay systems, refactor codebase Unity lớn, debug lỗi runtime khó. <b>Mình quyết kiến trúc; AI lo phần lặp lại.</b></span></p>
+      </div>
+      <div class="skillcard reveal">
+        <div class="kl">PROTOTYPING</div>
+        <h3><span lang="en">Ideas to playable, fast</span><span lang="vi">Ý tưởng thành chơi được, nhanh</span></h3>
+        <p><span lang="en">Turning a gameplay idea into a working prototype in <b>hours, not days</b> — so I test what's actually fun earlier and throw away weak ideas cheaply.</span><span lang="vi">Biến một ý tưởng gameplay thành prototype chạy được trong <b>vài giờ thay vì vài ngày</b> — thử cái gì thật sự vui sớm hơn, bỏ ý tưởng dở với chi phí thấp.</span></p>
+      </div>
+      <div class="skillcard reveal">
+        <div class="kl">QUALITY &amp; REVIEW</div>
+        <h3><span lang="en">A second pair of eyes</span><span lang="vi">Một cặp mắt thứ hai</span></h3>
+        <p><span lang="en">AI review on changes — catching edge cases, race conditions and performance traps <b>before they reach players</b>.</span><span lang="vi">AI review từng thay đổi — soi edge case, race condition và bẫy performance <b>trước khi tới tay người chơi</b>.</span></p>
+      </div>
+      <div class="skillcard reveal">
+        <div class="kl">TOOLING &amp; DOCS</div>
+        <h3><span lang="en">Less busywork</span><span lang="vi">Bớt việc tay chân</span></h3>
+        <p><span lang="en">Custom Unity editor tools, build scripts, design docs and automation — so my time goes to the gameplay, not the plumbing.</span><span lang="vi">Công cụ editor Unity tự viết, script build, tài liệu thiết kế và tự động hoá — để thời gian dồn vào gameplay, không phải việc lặt vặt.</span></p>
+      </div>
+    </div>
+    <div class="aiproof reveal">
+      <span class="pixel">PROOF</span>
+      <span><span lang="en">This whole portfolio — design, bilingual copy and code — was built with <b>Claude Code</b>. <a href="https://github.com/Daniel-Pham831" target="_blank" rel="noopener">See my GitHub ↗</a></span><span lang="vi">Cả portfolio này — thiết kế, nội dung song ngữ và code — được dựng bằng <b>Claude Code</b>. <a href="https://github.com/Daniel-Pham831" target="_blank" rel="noopener">Xem GitHub của mình ↗</a></span></span>
     </div>
   </div>
 </section>
